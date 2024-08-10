@@ -11,13 +11,13 @@ import javax.persistence.Id;
 public class Task {
 
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String task;
-	
+
 	@Column(nullable = false)
 	private LocalDate dueDate;
-	
+
 	public Task() {}
 
 	@Id
@@ -37,7 +37,7 @@ public class Task {
 	public void setTask(String task) {
 		this.task = task;
 	}
-	
+
 	public LocalDate getDueDate() {
 		return dueDate;
 	}

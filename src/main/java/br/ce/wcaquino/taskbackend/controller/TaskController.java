@@ -22,12 +22,12 @@ public class TaskController {
 
 	@Autowired
 	private TaskRepo todoRepo;
-	
+
 	@GetMapping
 	public List<Task> findAll() {
 		return todoRepo.findAll();
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Task> save(@RequestBody Task todo) throws ValidationException {
 		if(todo.getTask() == null || todo.getTask() == "") {
@@ -40,6 +40,6 @@ public class TaskController {
 			throw new ValidationException("Due date must not be in past");
 		}
 		Task saved = todoRepo.save(todo);
-		return new ResponseEntity<Task>(saved, HttpStatus.CREATED);
+		return new ResponseEntity<>(saved, HttpStatus.CREATED);
 	}
 }
